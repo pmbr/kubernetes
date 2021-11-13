@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: d-nginx
+  labels:
+    app: d-nginx
+    env: prods
+spec:
+  template:
+    metadata: 
+      name: pod-nginx
+      labels:
+        app: myapp-nginx
+    spec:
+       containers:
+          - name: nginx-container
+            image: nginx
+  replicas: 3
+  selector:
+     matchLabels:
+        app: myapp-nginx

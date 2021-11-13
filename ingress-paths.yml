@@ -1,0 +1,16 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-paths
+spec:
+  rules:
+     - http:
+         paths:  
+            - path: /path1
+              backend: 
+                  serviceName: service1
+                  servicePort: 8081
+            - path: /path2
+              backend:
+                  serviceName: service2
+                  setvicePort: 8082      

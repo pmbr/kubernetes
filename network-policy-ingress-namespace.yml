@@ -1,0 +1,21 @@
+apiVersion: networking.k8.io/v1
+kind: NetworkPolicy
+metadata:
+  name: network-policy-namespace
+spec:
+  podSelector:
+    matchLabels:
+       - aLabelKey: labelValue
+  policyTypes:
+    - Ingress
+  ingress:  
+    - from:
+        - podSelector:
+             matchLabels:
+                - aLabelKey: aLabelValue
+          namespaceSelector:
+             matchLabels:
+                - aLabelKey: aLabelValue
+        ports:
+          - protocol: HTTP
+            port: 8080
