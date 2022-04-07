@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-env-variable
+  labels:
+     app: myapp-nginx
+     env: dev
+spec:
+  containers:
+    - name: nginx-container
+      image: nginx
+      env:
+        - name: aEnvVarName
+          value: aEnvVarValue

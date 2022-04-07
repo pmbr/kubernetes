@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-env-variable-from-config-map-1
+  labels:
+     app: myapp-nginx
+spec:
+  containers:
+    - name: nginx-container
+      image: nginx
+      env:
+        - name: aKey1-internal
+          valueFrom: 
+            configMapKeyRef: 
+              name: config-map-basic
+              key: aKey1

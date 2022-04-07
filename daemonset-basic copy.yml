@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: rs-nginx
+  labels:
+    app: rs-nginx
+spec:
+  template:
+    metadata: 
+      name: pod-nginx
+      labels:
+        app: myapp-nginx
+    spec:
+       containers:
+          - name: nginx-container
+            image: nginx
+  selector:
+     matchLabels:
+        app: myapp-nginx

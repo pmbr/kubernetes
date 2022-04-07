@@ -1,0 +1,12 @@
+oci setup config
+
+
+oci session authenticate
+
+
+oci iam compartment list --auth security_token
+
+
+terraform init
+terraform plan
+terraform apply
